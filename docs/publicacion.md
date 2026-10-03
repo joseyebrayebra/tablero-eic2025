@@ -1,4 +1,4 @@
-# Publicación del tablero para un grupo reducido
+# Publicación del tablero
 
 Servicio: Streamlit Community Cloud, con acceso restringido a correos invitados. Se publica solo lo que el
 tablero necesita (`app/`, `config/`, `data/output/`, unos 3.5 MB); los microdatos no salen del equipo.
@@ -18,6 +18,16 @@ tablero necesita (`app/`, `config/`, `data/output/`, unos 3.5 MB); los microdato
 
 Revisa al publicar las condiciones vigentes del plan gratuito para apps privadas; si el plan no lo permite,
 la alternativa es el servidor de tu institución (ver abajo).
+
+## Variante: enlace simple, sin inicio de sesión
+
+Si basta con un enlace que se comparte de confianza, se omite el paso 4 y en *Settings → Sharing* se deja la
+app como pública. Quien tenga el enlace la abre directamente, sin cuenta ni correo. El repositorio puede seguir
+siendo privado. En *Settings* también se puede elegir el nombre del enlace, por ejemplo
+`https://tablero-educativo-gto.streamlit.app`.
+
+Ten en cuenta que una app pública no tiene contraseña: cualquiera que reciba el enlace puede verla, y los
+buscadores pueden llegar a indexarla.
 
 ## Cada vez que cambien las cifras
 

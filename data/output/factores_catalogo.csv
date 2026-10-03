@@ -1,0 +1,17 @@
+clave,nombre,tema,tipo,unidad,unidad_analisis
+viv_internet,Viviendas con internet,Factores asociados,porcentaje,%,hogares
+viv_computadora,"Viviendas con computadora, laptop o tablet",Factores asociados,porcentaje,%,hogares
+viv_hacinamiento,Viviendas con hacinamiento (más de 2.5 residentes por dormitorio),Factores asociados,porcentaje,%,hogares
+viv_lena_carbon,Viviendas que cocinan principalmente con leña o carbón,Factores asociados,porcentaje,%,hogares
+hog_remesas,Hogares que reciben ingresos de alguien que vive en otro país,Factores asociados,porcentaje,%,hogares
+hog_programas_gobierno,Hogares que reciben ingresos de programas de gobierno,Factores asociados,porcentaje,%,hogares
+hog_inseguridad_alim_menores,Hogares con menores de 18 años donde algún menor tuvo carencias de alimentación,Factores asociados,porcentaje,%,hogares
+hog_desplazamiento,Hogares con desplazamiento forzado interno (inseguridad o catástrofes),Factores asociados,porcentaje,%,hogares
+jovenes_15_17_activos,Jóvenes de 15 a 17 años económicamente activos,Factores asociados,porcentaje,%,personas
+mujeres_15_19_con_hijos,Mujeres de 15 a 19 años con al menos una hija o hijo nacido vivo,Factores asociados,porcentaje,%,personas
+pob_loc_menos_2500,"Población en localidades de menos de 2,500 habitantes",Contexto,porcentaje,%,personas
+pob_loc_2500_14999,"Población en localidades de 2,500 a 14,999 habitantes",Contexto,porcentaje,%,personas
+pob_loc_15000_49999,"Población en localidades de 15,000 a 49,999 habitantes",Contexto,porcentaje,%,personas
+escolaridad_promedio_25mas,Grado promedio de escolaridad de la población de 25 años y más,Contexto,media,grados,personas
+asistencia_15_17,Población de 15 a 17 años que asiste a la escuela,Resultado educativo,porcentaje,%,personas
+media_superior_completa_20_24,Jóvenes de 20 a 24 años con educación media superior completa,Resultado educativo,porcentaje,%,personas

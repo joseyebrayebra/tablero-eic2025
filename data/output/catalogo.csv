@@ -1,0 +1,33 @@
+clave,nombre,tema,tipo,unidad,unidad_analisis
+asistencia_3_5,Población de 3 a 5 años que asiste a la escuela,Asistencia escolar,porcentaje,%,personas
+asistencia_6_11,Población de 6 a 11 años que asiste a la escuela,Asistencia escolar,porcentaje,%,personas
+asistencia_12_14,Población de 12 a 14 años que asiste a la escuela,Asistencia escolar,porcentaje,%,personas
+asistencia_15_17,Población de 15 a 17 años que asiste a la escuela,Asistencia escolar,porcentaje,%,personas
+asistencia_18_24,Población de 18 a 24 años que asiste a la escuela,Asistencia escolar,porcentaje,%,personas
+no_asiste_3_17,Población de 3 a 17 años que no asiste a la escuela,Asistencia escolar,porcentaje,%,personas
+no_asiste_3_17_total,"Niñas, niños y adolescentes de 3 a 17 años que no asisten a la escuela",Asistencia escolar,total,personas,personas
+no_estudia_no_trabaja_15_24,Jóvenes de 15 a 24 años que no asisten a la escuela ni están ocupados,Asistencia escolar,porcentaje,%,personas
+escolaridad_promedio_15mas,Grado promedio de escolaridad de la población de 15 años y más,Escolaridad y rezago,media,grados,personas
+analfabetismo_15mas,Población de 15 años y más analfabeta,Escolaridad y rezago,porcentaje,%,personas
+analfabetismo_15mas_total,Personas de 15 años y más analfabetas,Escolaridad y rezago,total,personas,personas
+sin_basica_completa_15mas,Población de 15 años y más sin educación básica completa,Escolaridad y rezago,porcentaje,%,personas
+sin_basica_completa_15mas_total,Personas de 15 años y más sin educación básica completa,Escolaridad y rezago,total,personas,personas
+nivel_sin_escolaridad_15mas,Población de 15 años y más sin escolaridad,Escolaridad y rezago,porcentaje,%,personas
+nivel_basica_15mas,Población de 15 años y más con educación básica como último nivel,Escolaridad y rezago,porcentaje,%,personas
+nivel_media_superior_15mas,Población de 15 años y más con educación media superior como último nivel,Escolaridad y rezago,porcentaje,%,personas
+nivel_superior_15mas,Población de 15 años y más con educación superior,Escolaridad y rezago,porcentaje,%,personas
+media_superior_completa_20_24,Jóvenes de 20 a 24 años con educación media superior completa,Escolaridad y rezago,porcentaje,%,personas
+superior_25mas,Población de 25 años y más con educación superior,Escolaridad y rezago,porcentaje,%,personas
+estudia_otro_municipio,"Estudiantes cuya escuela está en otro municipio, estado o país",Acceso y traslado,porcentaje,%,personas
+traslado_mas_30min,Estudiantes que tardan más de 30 minutos en llegar a la escuela,Acceso y traslado,porcentaje,%,personas
+traslado_caminando,Estudiantes que van caminando a la escuela,Acceso y traslado,porcentaje,%,personas
+traslado_transporte_publico,Estudiantes que usan transporte público para ir a la escuela,Acceso y traslado,porcentaje,%,personas
+traslado_vehiculo_particular,Estudiantes que van a la escuela en automóvil o motocicleta,Acceso y traslado,porcentaje,%,personas
+hogares_escolar_sin_internet,Hogares con población de 3 a 17 años sin internet,Condiciones del hogar,porcentaje,%,hogares
+hogares_escolar_sin_computadora,"Hogares con población de 3 a 17 años sin computadora, laptop o tablet",Condiciones del hogar,porcentaje,%,hogares
+hogares_escolar_programas_gobierno,Hogares con población de 3 a 17 años que reciben ingresos de programas de gobierno,Condiciones del hogar,porcentaje,%,hogares
+hogares_escolar_sin_comida,Hogares con población de 3 a 17 años que se quedaron sin comida por falta de recursos,Condiciones del hogar,porcentaje,%,hogares
+asistencia_edad,"Población que asiste a la escuela, por edad",Trayectoria,porcentaje,%,personas
+logro_basica_completa,Población con educación básica completa,Logro,porcentaje,%,personas
+logro_media_superior_completa,Población con educación media superior completa,Logro,porcentaje,%,personas
+logro_superior,Población con educación superior,Logro,porcentaje,%,personas

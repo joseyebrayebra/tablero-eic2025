@@ -1,0 +1,531 @@
+{
+ "geografia": "Guanajuato",
+ "titulo": "Educación en Guanajuato: las cifras en perspectiva",
+ "fuente": "INEGI, Encuesta Intercensal 2025, microdatos. Universo: viviendas particulares habitadas y sus residentes.",
+ "notas": [
+  "Cada frase redondea una estimación; el dato exacto con su error estándar está en las cifras de respaldo.",
+  "Las equivalencias con municipios usan la población total del municipio estimada con la misma encuesta.",
+  "Los «grupos de 40» son una convención para dimensionar, no un dato de la encuesta.",
+  "Los cálculos derivados combinan dos estimaciones y no tienen error estándar propio: son órdenes de magnitud.",
+  "Las frases sobre el hogar y el territorio describen asociaciones, no causas."
+ ],
+ "frases": [
+  {
+   "id": "fuera_15_17",
+   "tema": "Asistencia",
+   "titular": "3 de cada 10 jóvenes de 15 a 17 años ya no van a la escuela",
+   "frase": "Son cerca de 95 mil jóvenes en edad de bachillerato: prácticamente toda la población del municipio de Salvatierra.",
+   "aviso": false,
+   "respaldo": [
+    {
+     "concepto": "Población de 15 a 17 años que no asiste a la escuela",
+     "valor": 28.772449378185154,
+     "unidad": "%",
+     "ee": 0.7647274334298227,
+     "cv": 2.6578461339117956,
+     "n_muestral": 42723,
+     "calidad": "alta",
+     "tipo": "estimación"
+    },
+    {
+     "concepto": "Personas de 15 a 17 años que no asisten",
+     "valor": 95019.0,
+     "unidad": "personas",
+     "ee": 3424.1144660549908,
+     "cv": 3.603610294841022,
+     "n_muestral": 13420,
+     "calidad": "alta",
+     "tipo": "estimación"
+    }
+   ]
+  },
+  {
+   "id": "caida_14_18",
+   "tema": "Asistencia",
+   "titular": "A los 14 años van a la escuela casi 9 de cada 10; a los 18, solo 4 de cada 10",
+   "frase": "En cuatro años de edad, la asistencia cae de 88 % a 40 %. La primera pérdida visible llega al terminar la secundaria: a los 15 años ya solo asisten 77 de cada 100.",
+   "aviso": false,
+   "respaldo": [
+    {
+     "concepto": "Asistencia a los 14 años",
+     "valor": 88.46005783400031,
+     "unidad": "%",
+     "ee": 0.69931477905919,
+     "cv": 0.7905429819766668,
+     "n_muestral": 14565,
+     "calidad": "alta",
+     "tipo": "estimación"
+    },
+    {
+     "concepto": "Asistencia a los 15 años",
+     "valor": 76.52551082620587,
+     "unidad": "%",
+     "ee": 0.9750621439215419,
+     "cv": 1.274166135442033,
+     "n_muestral": 14775,
+     "calidad": "alta",
+     "tipo": "estimación"
+    },
+    {
+     "concepto": "Asistencia a los 18 años",
+     "valor": 40.480415019094934,
+     "unidad": "%",
+     "ee": 1.0749407824946782,
+     "cv": 2.655458897809274,
+     "n_muestral": 14331,
+     "calidad": "alta",
+     "tipo": "estimación"
+    }
+   ]
+  },
+  {
+   "id": "brecha_nacional",
+   "tema": "Asistencia",
+   "titular": "Alcanzar el promedio nacional sería tener 18 mil jóvenes más en el bachillerato",
+   "frase": "En Guanajuato asisten 71.2 de cada 100 jóvenes de 15 a 17 años; en el país, 76.5. Cerrar esa distancia equivale a llenar unos 440 grupos de 40 estudiantes. Hoy el estado ocupa el lugar 28 de 32 entidades.",
+   "aviso": false,
+   "respaldo": [
+    {
+     "concepto": "Asistencia de 15 a 17 años, Guanajuato",
+     "valor": 71.16274985389546,
+     "unidad": "%",
+     "ee": 0.7637099438281789,
+     "cv": 1.0731877919222554,
+     "n_muestral": 42723,
+     "calidad": "alta",
+     "tipo": "estimación"
+    },
+    {
+     "concepto": "Asistencia de 15 a 17 años, nacional",
+     "valor": 76.49603527620546,
+     "unidad": "%",
+     "ee": 0.11003262166485661,
+     "cv": 0.14384094713871123,
+     "n_muestral": 1380031,
+     "calidad": "alta",
+     "tipo": "estimación"
+    },
+    {
+     "concepto": "Población de 15 a 17 años, Guanajuato",
+     "valor": 330243.0,
+     "unidad": "personas",
+     "ee": 6138.838307150404,
+     "cv": 1.8588852169918526,
+     "n_muestral": 42723,
+     "calidad": "alta",
+     "tipo": "estimación"
+    },
+    {
+     "concepto": "Jóvenes adicionales para igualar el promedio nacional",
+     "valor": 17612.80177719921,
+     "unidad": "personas",
+     "ee": null,
+     "cv": null,
+     "n_muestral": null,
+     "calidad": null,
+     "tipo": "cálculo derivado",
+     "nota": "Diferencia de porcentajes por la población de 15 a 17 años"
+    }
+   ]
+  },
+  {
+   "id": "sexo_15_17",
+   "tema": "Brechas",
+   "titular": "Entre los 15 y los 17 años estudian 75 de cada 100 mujeres, pero solo 67 de cada 100 hombres",
+   "frase": "La distancia es de 8 puntos: la salida temprana de la escuela es sobre todo masculina.",
+   "aviso": false,
+   "respaldo": [
+    {
+     "concepto": "Asistencia de 15 a 17 años, mujeres",
+     "valor": 75.41259187454753,
+     "unidad": "%",
+     "ee": 0.7121972442642952,
+     "cv": 0.9444009635009888,
+     "n_muestral": 21264,
+     "calidad": "alta",
+     "tipo": "estimación"
+    },
+    {
+     "concepto": "Asistencia de 15 a 17 años, hombres",
+     "valor": 67.021028526329,
+     "unidad": "%",
+     "ee": 1.0193646701556083,
+     "cv": 1.5209624390576966,
+     "n_muestral": 21459,
+     "calidad": "alta",
+     "tipo": "estimación"
+    }
+   ]
+  },
+  {
+   "id": "hogar",
+   "tema": "Brechas",
+   "titular": "Con estudios universitarios en casa asisten más de 9 de cada 10; con solo primaria, más de 4 de cada 10",
+   "frase": "La asistencia de los jóvenes de 15 a 17 años en hogares donde algún adulto llegó a la universidad es 2.2 veces la de quienes viven en hogares donde los adultos solo terminaron la primaria. Es una asociación: no prueba que la escolaridad del hogar sea la causa.",
+   "aviso": false,
+   "respaldo": [
+    {
+     "concepto": "Asistencia 15-17, hogar con educación superior",
+     "valor": 94.5915906864592,
+     "unidad": "%",
+     "ee": 0.5804525777836946,
+     "cv": 0.6136407830456186,
+     "n_muestral": 5493,
+     "calidad": "alta",
+     "tipo": "estimación"
+    },
+    {
+     "concepto": "Asistencia 15-17, hogar con primaria completa como máximo",
+     "valor": 42.20916484540145,
+     "unidad": "%",
+     "ee": 1.8090154195041293,
+     "cv": 4.285835614445272,
+     "n_muestral": 4457,
+     "calidad": "alta",
+     "tipo": "estimación"
+    }
+   ]
+  },
+  {
+   "id": "territorio",
+   "tema": "Brechas",
+   "titular": "En Salamanca estudian más de 8 de cada 10 jóvenes de 15 a 17 años; en Ocampo, 5 de cada 10",
+   "frase": "Entre el municipio con mayor asistencia (83 %) y el de menor (50 %) hay 33 puntos de diferencia dentro del mismo estado.",
+   "aviso": false,
+   "respaldo": [
+    {
+     "concepto": "Asistencia de 15 a 17 años, Salamanca",
+     "valor": 83.08485439598718,
+     "unidad": "%",
+     "ee": 1.2302745212863837,
+     "cv": 1.480744631774673,
+     "n_muestral": 1166,
+     "calidad": "alta",
+     "tipo": "estimación"
+    },
+    {
+     "concepto": "Asistencia de 15 a 17 años, Ocampo",
+     "valor": 50.44612216884008,
+     "unidad": "%",
+     "ee": 2.2840801434831337,
+     "cv": 4.52776159055092,
+     "n_muestral": 723,
+     "calidad": "alta",
+     "tipo": "estimación"
+    }
+   ]
+  },
+  {
+   "id": "bachillerato",
+   "tema": "Logro",
+   "titular": "De cada 10 jóvenes de 20 a 24 años, 4 no terminaron el bachillerato",
+   "frase": "Lo concluyeron 57 de cada 100, frente a 66 de cada 100 en el país (lugar 29 de 32). Son alrededor de 222 mil jóvenes sin bachillerato: prácticamente toda la población del municipio de Silao de la Victoria.",
+   "aviso": false,
+   "respaldo": [
+    {
+     "concepto": "Media superior completa, 20 a 24 años, Guanajuato",
+     "valor": 57.08757016345092,
+     "unidad": "%",
+     "ee": 0.7632103323757863,
+     "cv": 1.3369115732033996,
+     "n_muestral": 62846,
+     "calidad": "alta",
+     "tipo": "estimación"
+    },
+    {
+     "concepto": "Media superior completa, 20 a 24 años, nacional",
+     "valor": 65.86843708706044,
+     "unidad": "%",
+     "ee": 0.13163598481618785,
+     "cv": 0.1998468320148546,
+     "n_muestral": 1902496,
+     "calidad": "alta",
+     "tipo": "estimación"
+    },
+    {
+     "concepto": "Población de 20 a 24 años, Guanajuato",
+     "valor": 518076.0,
+     "unidad": "personas",
+     "ee": 9352.429503711757,
+     "cv": 1.8052234621390988,
+     "n_muestral": 62846,
+     "calidad": "alta",
+     "tipo": "estimación"
+    },
+    {
+     "concepto": "Jóvenes de 20 a 24 sin media superior completa",
+     "valor": 222319.00000000003,
+     "unidad": "personas",
+     "ee": null,
+     "cv": null,
+     "n_muestral": null,
+     "calidad": null,
+     "tipo": "cálculo derivado",
+     "nota": "Complemento del porcentaje por la población de 20 a 24 años; incluye no especificado"
+    }
+   ]
+  },
+  {
+   "id": "superior",
+   "tema": "Logro",
+   "titular": "1 de cada 5 adultos tiene estudios superiores; en el país, 1 de cada 4",
+   "frase": "Entre la población de 25 años y más, 19.4 % cursó algún grado de educación superior (25.6 % nacional). Y la generación que hoy está en edad universitaria tampoco cierra la distancia: estudian casi 3 de cada 10 jóvenes de 18 a 24 años.",
+   "aviso": false,
+   "respaldo": [
+    {
+     "concepto": "Educación superior, 25 años y más, Guanajuato",
+     "valor": 19.36155313262177,
+     "unidad": "%",
+     "ee": 0.7147837862472589,
+     "cv": 3.691768843910247,
+     "n_muestral": 475384,
+     "calidad": "alta",
+     "tipo": "estimación"
+    },
+    {
+     "concepto": "Educación superior, 25 años y más, nacional",
+     "valor": 25.595745435260763,
+     "unidad": "%",
+     "ee": 0.13995439270104212,
+     "cv": 0.5467877192911936,
+     "n_muestral": 14882490,
+     "calidad": "alta",
+     "tipo": "estimación"
+    },
+    {
+     "concepto": "Asistencia de 18 a 24 años, Guanajuato",
+     "valor": 27.770838049469653,
+     "unidad": "%",
+     "ee": 0.6052250124897167,
+     "cv": 2.1793545135785877,
+     "n_muestral": 89343,
+     "calidad": "alta",
+     "tipo": "estimación"
+    }
+   ]
+  },
+  {
+   "id": "escolaridad",
+   "tema": "Logro",
+   "titular": "En promedio, un guanajuatense estudió 9.6 años: la secundaria terminada y poco más de la mitad del primer año de bachillerato",
+   "frase": "El promedio nacional es de 10.3 años (el primer año de bachillerato y una cuarta parte del segundo). La diferencia es de 0.7 grados por persona, unas dos terceras partes de un ciclo escolar; lugar 27 de 32.",
+   "aviso": false,
+   "respaldo": [
+    {
+     "concepto": "Grado promedio de escolaridad, 15 años y más, Guanajuato",
+     "valor": 9.577754130736734,
+     "unidad": "grados",
+     "ee": 0.06271571388209989,
+     "cv": 0.6548060539665963,
+     "n_muestral": 606159,
+     "calidad": "alta",
+     "tipo": "estimación"
+    },
+    {
+     "concepto": "Grado promedio de escolaridad, 15 años y más, nacional",
+     "valor": 10.264999563338627,
+     "unidad": "grados",
+     "ee": 0.01196396129509888,
+     "cv": 0.11655101611331854,
+     "n_muestral": 18938909,
+     "calidad": "alta",
+     "tipo": "estimación"
+    }
+   ]
+  },
+  {
+   "id": "generaciones",
+   "tema": "Logro",
+   "titular": "Entre los mayores de 65 años terminaron la secundaria casi 3 de cada 10; entre quienes tienen 25 a 34, casi 9 de cada 10",
+   "frase": "En dos generaciones la secundaria terminada pasó de 27 % a 88 %. El reto ya no está en la educación básica sino en lo que sigue.",
+   "aviso": false,
+   "respaldo": [
+    {
+     "concepto": "Básica completa, 65 años y más",
+     "valor": 27.13157753508466,
+     "unidad": "%",
+     "ee": 0.883365924152912,
+     "cv": 3.255859055783265,
+     "n_muestral": 81938,
+     "calidad": "alta",
+     "tipo": "estimación"
+    },
+    {
+     "concepto": "Básica completa, 25 a 34 años",
+     "valor": 88.4670374897109,
+     "unidad": "%",
+     "ee": 0.39102643672927156,
+     "cv": 0.44200240883475905,
+     "n_muestral": 117585,
+     "calidad": "alta",
+     "tipo": "estimación"
+    }
+   ]
+  },
+  {
+   "id": "sin_secundaria",
+   "tema": "Rezago",
+   "titular": "Casi 3 de cada 10 personas de 15 años o más no terminaron la secundaria",
+   "frase": "Son 1.39 millones de personas: unas 5 veces la población del municipio de Salamanca.",
+   "aviso": false,
+   "respaldo": [
+    {
+     "concepto": "Población de 15 años y más sin básica completa",
+     "valor": 28.25159931984858,
+     "unidad": "%",
+     "ee": 0.38656921835650837,
+     "cv": 1.3683091494396158,
+     "n_muestral": 607450,
+     "calidad": "alta",
+     "tipo": "estimación"
+    },
+    {
+     "concepto": "Personas de 15 años y más sin básica completa",
+     "valor": 1394986.0,
+     "unidad": "personas",
+     "ee": 28456.508786384326,
+     "cv": 2.0399135752175526,
+     "n_muestral": 204503,
+     "calidad": "alta",
+     "tipo": "estimación"
+    }
+   ]
+  },
+  {
+   "id": "analfabetismo",
+   "tema": "Rezago",
+   "titular": "1 de cada 24 personas de 15 años o más no sabe leer ni escribir",
+   "frase": "Son cerca de 203 mil personas: prácticamente toda la población del municipio de Guanajuato. Es un rezago de generaciones anteriores: entre quienes tienen 65 años o más no lee ni escribe 1 de cada 5; entre los jóvenes de 15 a 29, 1 de cada 162.",
+   "aviso": false,
+   "respaldo": [
+    {
+     "concepto": "Analfabetismo, 15 años y más",
+     "valor": 4.10166708386293,
+     "unidad": "%",
+     "ee": 0.08953176429327747,
+     "cv": 2.1828140232423956,
+     "n_muestral": 607450,
+     "calidad": "alta",
+     "tipo": "estimación"
+    },
+    {
+     "concepto": "Personas analfabetas de 15 años y más",
+     "valor": 202529.0,
+     "unidad": "personas",
+     "ee": 5027.35752366173,
+     "cv": 2.4822902022237456,
+     "n_muestral": 33033,
+     "calidad": "alta",
+     "tipo": "estimación"
+    },
+    {
+     "concepto": "Analfabetismo, 65 años y más",
+     "valor": 19.0351047843937,
+     "unidad": "%",
+     "ee": 0.43849385970728233,
+     "cv": 2.303606230036569,
+     "n_muestral": 81938,
+     "calidad": "alta",
+     "tipo": "estimación"
+    },
+    {
+     "concepto": "Analfabetismo, 15 a 29 años",
+     "valor": 0.6157791820446651,
+     "unidad": "%",
+     "ee": 0.05006826864243174,
+     "cv": 8.130880371139288,
+     "n_muestral": 190773,
+     "calidad": "alta",
+     "tipo": "estimación"
+    }
+   ]
+  },
+  {
+   "id": "nini",
+   "tema": "Asistencia",
+   "titular": "Más de 2 de cada 10 jóvenes de 15 a 24 años no estudian ni tienen trabajo",
+   "frase": "Son alrededor de 232 mil jóvenes: prácticamente toda la población del municipio de Silao de la Victoria. Incluye a quienes buscan trabajo y a quienes se dedican al hogar.",
+   "aviso": false,
+   "respaldo": [
+    {
+     "concepto": "Jóvenes de 15 a 24 que no asisten ni están ocupados",
+     "valor": 21.859429960857174,
+     "unidad": "%",
+     "ee": 0.33558824749320515,
+     "cv": 1.5352104244901625,
+     "n_muestral": 132066,
+     "calidad": "alta",
+     "tipo": "estimación"
+    },
+    {
+     "concepto": "Personas de 15 a 24 que no asisten ni están ocupadas",
+     "valor": 232484.0,
+     "unidad": "personas",
+     "ee": 5280.124991441104,
+     "cv": 2.2711777978016134,
+     "n_muestral": 32091,
+     "calidad": "alta",
+     "tipo": "estimación"
+    }
+   ]
+  },
+  {
+   "id": "preescolar",
+   "tema": "Asistencia",
+   "titular": "Casi 3 de cada 10 niñas y niños de 3 a 5 años no van a preescolar",
+   "frase": "Son cerca de 77 mil: llenarían unos 1,920 grupos de 40.",
+   "aviso": false,
+   "respaldo": [
+    {
+     "concepto": "Población de 3 a 5 años que no asiste",
+     "valor": 28.298116623611758,
+     "unidad": "%",
+     "ee": 0.5879144764402403,
+     "cv": 2.0775745759337516,
+     "n_muestral": 35115,
+     "calidad": "alta",
+     "tipo": "estimación"
+    },
+    {
+     "concepto": "Niñas y niños de 3 a 5 que no asisten",
+     "valor": 76899.0,
+     "unidad": "personas",
+     "ee": 2287.1109224067413,
+     "cv": 2.974175115940053,
+     "n_muestral": 9510,
+     "calidad": "alta",
+     "tipo": "estimación"
+    }
+   ]
+  },
+  {
+   "id": "internet",
+   "tema": "Condiciones para estudiar",
+   "titular": "1 de cada 5 hogares con niñas, niños o adolescentes no tiene internet",
+   "frase": "Y casi 7 de cada 10 no tienen computadora, laptop ni tablet. Se cuentan hogares, no personas.",
+   "aviso": false,
+   "respaldo": [
+    {
+     "concepto": "Hogares con población de 3 a 17 años sin internet",
+     "valor": 20.767551845158177,
+     "unidad": "%",
+     "ee": 0.4206817335795055,
+     "cv": 2.025668392288544,
+     "n_muestral": 113996,
+     "calidad": "alta",
+     "tipo": "estimación"
+    },
+    {
+     "concepto": "Hogares con población de 3 a 17 años sin computadora",
+     "valor": 65.83156662518905,
+     "unidad": "%",
+     "ee": 0.7335800463254394,
+     "cv": 1.1143287087516318,
+     "n_muestral": 113996,
+     "calidad": "alta",
+     "tipo": "estimación"
+    }
+   ]
+  }
+ ]
+}

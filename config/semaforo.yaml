@@ -1,0 +1,73 @@
+# Reglas del semáforo del resumen ejecutivo.
+# Este archivo se puede editar sin tocar código; el tablero lo vuelve a leer al recargar la página.
+
+# Año actual y año base de la tendencia.
+# anio_base: null  → el semáforo usa solo el NIVEL (decisión actual: no se usa el Censo 2020).
+# Para activar la tendencia, pon aquí el año (por ejemplo 2020) y agrega a
+# data/output/indicadores.parquet filas con ese año para los mismos indicadores y geografías.
+anio_actual: 2025
+anio_base: null
+
+# Referente contra el que se compara el NIVEL, según la geografía que se está viendo.
+# Se usa el primero de la lista que tenga datos.
+#   nacional = total del país | grupo = estados pares en conjunto | entidad = el estado del municipio
+referente:
+  entidad: [nacional, grupo]
+  municipio: [entidad]
+  nacional: []
+
+# Una diferencia cuenta como "mejor/peor" (nivel) o "mejora/empeora" (tendencia) solo si:
+#   1) supera la tolerancia, y
+#   2) es estadísticamente distinta de cero (si exigir_significancia es true),
+#      con z = confianza_z sobre los errores estándar de ambas estimaciones.
+# En otro caso es "similar" o "estable".
+exigir_significancia: true
+confianza_z: 1.645          # 90 %, como INEGI
+tolerancia:
+  porcentaje: 1.0           # puntos porcentuales
+  media: 0.2                # unidades del indicador (grados de escolaridad)
+
+# Matriz nivel × tendencia → color. Se evalúa en orden y gana la primera regla que coincide.
+# nivel: mejor | similar | peor | sin_dato        tendencia: mejora | estable | empeora | sin_dato
+# "*" significa cualquiera.
+reglas:
+  - {nivel: sin_dato, tendencia: "*",      color: gris}
+  - {nivel: mejor,    tendencia: empeora,  color: amarillo}
+  - {nivel: mejor,    tendencia: "*",      color: verde}
+  - {nivel: similar,  tendencia: mejora,   color: verde}
+  - {nivel: similar,  tendencia: empeora,  color: rojo}
+  - {nivel: similar,  tendencia: "*",      color: amarillo}
+  - {nivel: peor,     tendencia: mejora,   color: amarillo}
+  - {nivel: peor,     tendencia: "*",      color: rojo}
+
+colores:
+  verde:    {hex: "#0ca30c", icono: "●", etiqueta: "Favorable"}
+  amarillo: {hex: "#fab219", icono: "▲", etiqueta: "Atención"}
+  rojo:     {hex: "#d03b3b", icono: "■", etiqueta: "Crítico"}
+  gris:     {hex: "#8a8985", icono: "○", etiqueta: "Sin referente"}
+
+# Indicadores del resumen ejecutivo, en el orden en que aparecen.
+# sentido: mayor_es_mejor | menor_es_mejor.   tolerancia (opcional) sustituye a la general.
+indicadores:
+  - {clave: asistencia_3_5,                sentido: mayor_es_mejor}
+  - {clave: asistencia_12_14,              sentido: mayor_es_mejor}
+  - {clave: asistencia_15_17,              sentido: mayor_es_mejor}
+  - {clave: asistencia_18_24,              sentido: mayor_es_mejor}
+  - {clave: no_estudia_no_trabaja_15_24,   sentido: menor_es_mejor}
+  - {clave: escolaridad_promedio_15mas,    sentido: mayor_es_mejor}
+  - {clave: analfabetismo_15mas,           sentido: menor_es_mejor, tolerancia: 0.5}
+  - {clave: sin_basica_completa_15mas,     sentido: menor_es_mejor}
+  - {clave: media_superior_completa_20_24, sentido: mayor_es_mejor}
+  - {clave: superior_25mas,                sentido: mayor_es_mejor}
+  - {clave: hogares_escolar_sin_internet,  sentido: menor_es_mejor}
+  - {clave: hogares_escolar_sin_computadora, sentido: menor_es_mejor}
+
+# Sentido de los demás indicadores (se usa en mapa, ranking y comparativo para saber qué es "mejor").
+# Los que no aparezcan aquí ni arriba se muestran sin juicio de mejor/peor.
+sentido_otros:
+  asistencia_6_11: mayor_es_mejor
+  no_asiste_3_17: menor_es_mejor
+  nivel_sin_escolaridad_15mas: menor_es_mejor
+  nivel_superior_15mas: mayor_es_mejor
+  traslado_mas_30min: menor_es_mejor
+  hogares_escolar_sin_comida: menor_es_mejor

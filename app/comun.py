@@ -230,9 +230,11 @@ def base_fig(alto: int = 420, titulo_y: str = "", titulo_x: str = "") -> go.Figu
 
 
 def barras_h(df: pd.DataFrame, etiqueta: str, indicador: str, color: str | list[str] = AZUL, alto: int | None = None,
-             linea_ref: tuple[float, str] | None = None) -> go.Figure:
-    """Barras horizontales con intervalo al 90 %. Calidad media con trama; baja no se dibuja."""
+             linea_ref: tuple[float, str] | None = None, extra: str | None = None) -> go.Figure:
+    """Barras horizontales con intervalo al 90 %. Calidad media con trama; baja no se dibuja.
+    extra: nombre de una columna de df con texto adicional para el hover."""
     d = df[~df.oculto]
+    texto_extra = d[extra].astype(str) if extra else pd.Series([""] * len(d), index=d.index)
     u = "" if unidad(indicador) == "personas" else (" %" if unidad(indicador) == "%" else " grados")
     fig = base_fig(alto or max(260, 26 * len(d) + 90))
     fig.add_bar(
@@ -240,9 +242,9 @@ def barras_h(df: pd.DataFrame, etiqueta: str, indicador: str, color: str | list[
         marker_pattern_shape=["/" if a else "" for a in d.aviso], marker_pattern_fgcolor="white",
         error_x=dict(type="data", symmetric=False, array=d.ls - d.valor, arrayminus=d.valor - d.li,
                      color=TEXTO_2, thickness=1.2, width=3),
-        customdata=np.stack([d.ee, d.cv, d.n_muestral, np.where(d.aviso, f" {AVISO} calidad media", "")], axis=-1),
+        customdata=np.stack([d.ee, d.cv, d.n_muestral, np.where(d.aviso, f" {AVISO} calidad media", ""), texto_extra], axis=-1),
         hovertemplate="<b>%{y}</b><br>%{x:,.1f}" + u + "%{customdata[3]}<br>EE %{customdata[0]:.2f} · CV %{customdata[1]:.1f} %"
-                      "<br>n = %{customdata[2]:,}<extra></extra>",
+                      "<br>n = %{customdata[2]:,}" + ("<br>%{customdata[4]}" if extra else "") + "<extra></extra>",
         showlegend=False,
     )
     if linea_ref is not None and not pd.isna(linea_ref[0]):

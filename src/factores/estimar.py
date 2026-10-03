@@ -16,7 +16,7 @@ from src.indicadores.varianza import estimar, upm_por_estrato
 from .catalogo import CONTEXTO, ESC_HOGAR_CAT, FACTORES, RESULTADOS
 from .datos import AMBITOS, SALIDA, cargar, nombres_geo
 
-NIVELES = {"entidad": "CVE_ENT", "municipio": "CVEGEO"}
+NIVELES = {"nacional": "NACIONAL", "entidad": "CVE_ENT", "municipio": "CVEGEO"}
 ANIO = 2025
 
 
@@ -38,19 +38,20 @@ def tabla_larga(est: pl.DataFrame, ind: Indicador, nivel: str, nombres: dict[str
 
 def main(ambito: str = "pares") -> pl.DataFrame:
     nacional, sufijo, _ = AMBITOS[ambito]
-    tablas = cargar(nacional)
+    tablas = {t: lf.with_columns(NACIONAL=pl.lit("00")) for t, lf in cargar(nacional).items()}
     n_upm = {t: upm_por_estrato(lf) for t, lf in tablas.items()}
-    nombres = nombres_geo()
+    nombres = nombres_geo() | {"nacional": {"00": "Nacional"}}
+    niveles = NIVELES if nacional else {k: v for k, v in NIVELES.items() if k != "nacional"}
     partes = []
     for ind in FACTORES + CONTEXTO + RESULTADOS:
-        for nivel, col in NIVELES.items():
+        for nivel, col in niveles.items():
             est = estimar(tablas[ind.tabla], ind.num(), ind.den(), [col], n_upm[ind.tabla])
             partes.append(tabla_larga(est, ind, nivel, nombres[nivel]))
 
     # Asistencia de 15 a 17 años según la escolaridad máxima de los adultos del hogar
     asistencia = RESULTADOS[0]
     personas = tablas["personas"].filter(edad(15, 17)).with_columns(ESC_HOGAR=ESC_HOGAR_CAT)
-    for nivel, col in NIVELES.items():
+    for nivel, col in niveles.items():
         est = estimar(personas, asistencia.num(), asistencia.den(), [col, "ESC_HOGAR"], n_upm["personas"])
         partes.append(tabla_larga(est, asistencia, nivel, nombres[nivel], "escolaridad_max_hogar", pl.col("ESC_HOGAR")))
 

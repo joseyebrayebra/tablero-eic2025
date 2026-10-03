@@ -9,8 +9,7 @@ import streamlit as st
 import comun as c
 
 
-
-def render(sufijo: str, titulo: str, ambito: str) -> None:
+def render(sufijo: str, titulo: str, ambito: str, universo: str) -> None:
     ctx = c.contexto()
     fac = c.factores(sufijo)
     cat = c.catalogo()
@@ -19,28 +18,54 @@ def render(sufijo: str, titulo: str, ambito: str) -> None:
     FACTORES = [k for k in cat.index[cat.tema == "Factores asociados"]]
     RESULTADOS = {"asistencia_15_17": "Asistencia de 15 a 17 años", "media_superior_completa_20_24": "Media superior completa, 20 a 24 años"}
 
+    municipios_ambito = fac[(fac.geo_nivel == "municipio") & (fac.desagregacion == "total")].geo_id.nunique()
+    municipios_foco = fac[(fac.geo_nivel == "municipio") & fac.geo_id.str.startswith(c.ENTIDAD_FOCO)].geo_id.nunique()
+
     st.title(titulo)
-    st.caption(f"Ámbito de comparación: {ambito}.")
+    st.info(f"**Modelo estimado con los {municipios_ambito:,} municipios {universo}.** Aquí se muestran los "
+            f"{municipios_foco} municipios de Guanajuato, para ver cómo le va a cada uno frente a ese referente. "
+            "Los datos de cada municipio son los mismos en los dos modelos; cambia contra quién se comparan "
+            "(pestañas «Relación con resultados» y «Desviación positiva»).")
     st.warning("**Asociaciones, no causalidad.** Esta página describe qué condiciones aparecen junto a mejores o peores "
                "resultados en 2025. No demuestra que cambiar un factor cambie el resultado: hay variables no observadas, "
                "la relación puede ir en sentido inverso y los modelos municipales no describen a las personas.", icon="⚠️")
-    if ctx["nivel"] == "nacional":
-        st.info("Esta página muestra siempre los municipios de Guanajuato; el ámbito define contra quién se comparan.")
 
     t1, t2, t3, t4 = st.tabs(["Factores por municipio", "Escolaridad del hogar", "Relación con resultados", "Desviación positiva"])
 
     with t1:
         ind = st.selectbox("Factor", FACTORES, format_func=c.nombre)
-        d = c.serie(fac, ind, "total", "municipio")
-        d = d[d.geo_id.str.startswith(c.ENTIDAD_FOCO)].sort_values("valor", ascending=False, na_position="last")
+        todos = c.serie(fac, ind, "total", "municipio")
+        validos = todos.valor.dropna().to_numpy()
+        d = todos[todos.geo_id.str.startswith(c.ENTIDAD_FOCO)].sort_values("valor", ascending=False, na_position="last").copy()
+        # Posición de cada municipio de Guanajuato entre todos los municipios del ámbito (1 = valor más alto)
+        d["lugar"] = [int((validos > v).sum()) + 1 if not pd.isna(v) else None for v in d.valor]
+        d["pct_mayor"] = [100 * (validos < v).mean() if not pd.isna(v) else None for v in d.valor]
+        d["contexto"] = [f"Lugar {l:,} de {len(validos):,} municipios con dato (de mayor a menor)" if l else ""
+                         for l in d.lugar]
         est = c.serie(fac, ind, "total", "entidad", c.ENTIDAD_FOCO)
-        c.mostrar(c.barras_h(d, "geo_nombre", ind, c.AZUL, alto=max(520, 20 * len(d) + 80),
-                             linea_ref=(est.valor.iloc[0], c.NOMBRE_FOCO) if len(est) else None))
+        nac = c.serie(fac, ind, "total", "nacional", "00")
+        fig = c.barras_h(d, "geo_nombre", ind, c.AZUL, alto=max(520, 20 * len(d) + 80),
+                         linea_ref=(est.valor.iloc[0], c.NOMBRE_FOCO) if len(est) else None, extra="contexto")
+        if len(nac) and not nac.oculto.iloc[0]:
+            fig.add_vline(x=nac.valor.iloc[0], line_color=c.TEXTO_2, line_width=2, line_dash="dash",
+                          annotation_text="Nacional", annotation_font_color=c.TEXTO, annotation_position="bottom")
+        c.mostrar(fig)
+        referencias = [f"{c.NOMBRE_FOCO} {c.fmt(est.valor.iloc[0], ind)}"] if len(est) else []
+        if len(nac) and not nac.oculto.iloc[0]:
+            referencias.append(f"nacional {c.fmt(nac.valor.iloc[0], ind)}")
+        cuartil = d[d.pct_mayor >= 75]
+        st.caption(
+            ("Líneas de referencia: " + " · ".join(referencias) + ". " if referencias else "")
+            + f"{len(cuartil)} de los {len(d)} municipios de Guanajuato están en la cuarta parte de los {len(validos):,} "
+            f"municipios {universo} con dato y valores más altos en este factor. Pasa el cursor sobre una barra para ver su lugar.")
         if d.oculto.any():
             st.warning(f"{int(d.oculto.sum())} municipio(s) sin dato publicable (CV > 30 %): " + ", ".join(sorted(d[d.oculto].geo_nombre)))
         st.caption(f"Unidad de análisis: {cat.unidad_analisis[ind]}. Los factores de hogar se estiman sobre hogares.")
         with st.expander("Tabla de datos"):
-            st.dataframe(c.tabla_calidad(d, ind, {"geo_nombre": "Municipio"}), hide_index=True, use_container_width=True)
+            tabla = c.tabla_calidad(d, ind, {"geo_nombre": "Municipio"})
+            tabla.insert(2, f"Lugar entre {len(validos):,} municipios", d.lugar.astype("Int64").values)
+            tabla.insert(3, "Más alto que el … % de los municipios", d.pct_mayor.round(0).astype("Int64").values)
+            st.dataframe(tabla, hide_index=True, use_container_width=True)
 
     with t2:
         st.markdown("Asistencia a la escuela de jóvenes de 15 a 17 años según la escolaridad más alta entre las personas "
